@@ -1,0 +1,1 @@
+<span class="footer_copy">©️ 2018 Gia phả Võ Huy - Nam Anh, Nam Đàn, Nghệ An</span>
