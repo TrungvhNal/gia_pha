@@ -12,14 +12,16 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('front_end/home/css/reset.css') }}"> <!-- CSS reset -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style-tree.css') }}" rel="stylesheet">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style-tree.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('front_end/home/css/style.css') }}"> <!-- Resource style -->
+    <script src="{{ asset('front_end/home/js/modernizr.js') }}"></script> <!-- Modernizr -->
 </head>
 <body>
     <div id="app">
@@ -80,10 +82,11 @@
             @yield('content')
         </main>
     </div>
-    <div class="clearfix">
     <footer>
         @include('layouts.footer')
     </footer>
-        <div class="clearfix">
+            <script src="{{ asset('front_end/home/js/jquery-2.1.4.js')}}"></script>
+            <script src="{{ asset('front_end/home/js/jquery.mobile.custom.min.js')}}"></script>
+            <script src="{{ asset('front_end/home/js/main.js')}}"></script> <!-- Resource jQuery -->
 </body>
 </html>
