@@ -24,6 +24,12 @@
                             <th>Tuổi</th>
                             <th>Điện thoại</th>
                             <th>Địa chỉ</th>
+                            <th>Họ và tên</th>
+                            <th>Tên thường gọi</th>
+                            <th>Ngày sinh</th>
+                            <th>Tuổi</th>
+                            <th>Điện thoại</th>
+                            <th>Địa chỉ</th>
                             <th>Chi tiết</th>
                         </tr>
                         </thead>
