@@ -24,12 +24,6 @@
                             <th>Tuổi</th>
                             <th>Điện thoại</th>
                             <th>Địa chỉ</th>
-                            <th>Họ và tên</th>
-                            <th>Tên thường gọi</th>
-                            <th>Ngày sinh</th>
-                            <th>Tuổi</th>
-                            <th>Điện thoại</th>
-                            <th>Địa chỉ</th>
                             <th>Chi tiết</th>
                         </tr>
                         </thead>
@@ -68,7 +62,7 @@
                             <td class="center">5</td>
                             <td class="center">C</td>
                             <td class="center">4</td>
-                            <td class="center">xem chi tiết</td>
+                            <td class="center"><a href="#">xem chi tiết</a></td>
                         </tr>
                         </tbody>
                     </table>

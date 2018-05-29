@@ -16,8 +16,12 @@ class UsersController
         return view('admin.users');
     }
 
-    function add(Request $request){
-    return view('admin.add');
+    function getAdd(){
+        return view('admin.add');
+    }
+
+    function postAdd(Request $request){
+        return view('admin.add');
     }
 
     function edit(Request $request){
