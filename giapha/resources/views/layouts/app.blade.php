@@ -61,6 +61,11 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    @if(Auth::user()->idRoles == 1)
+                                        <a class="dropdown-item"  href="#"><i class="fa fa-user fa-fw"></i> Vào trang quản lý</a>
+                                    @endif
+                                    <a class="dropdown-item"  href="#"><i class="fa fa-user fa-fw"></i> Cài đặt</a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

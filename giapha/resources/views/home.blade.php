@@ -10,6 +10,8 @@
             </div>
             <div class="row" >
                 <div class="col-md-12">
+                    <em style="float: left; color: #ff5c04; width: 100%; text-align: center; margin: 30px 0px -30px 0px">
+                        Thông tin các sự kiện tổ chức hàng năm.</em>
                     <section class="cd-horizontal-timeline">
                         <div class="timeline">
                             <div class="events-wrapper">

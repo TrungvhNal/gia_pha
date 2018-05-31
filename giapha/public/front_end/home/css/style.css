@@ -48,7 +48,7 @@ Main Components
   position: relative;
   height: 100px;
   width: 90%;
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
 }
 .cd-horizontal-timeline .events-wrapper {
@@ -239,7 +239,7 @@ Main Components
 
 .cd-horizontal-timeline .events-content {
   position: relative;
-  width: 100%;
+  width: 100%;30
   margin: 2em 0;
   overflow: hidden;
   -webkit-transition: height 0.4s;
