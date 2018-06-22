@@ -43,7 +43,8 @@ class HomeController extends Controller
     }
 
     public function detail($id=''){
-        return view('detail.multiplewife');
+        return view('detail.detail');
     }
+
 
 }

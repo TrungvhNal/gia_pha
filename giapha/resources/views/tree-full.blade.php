@@ -4,13 +4,13 @@
         <div class="tree">
             <ul>
                 <li>
-                    <a href="">
+                    <a href="/home/12/detail">
                         <div><img src="/img/man.png" style="width: 100px; height: 125px"><br><p>Vo Huy Hải</p></div>
                         <div><img src="/img/girl.png" style="width: 100px; height: 125px"><br><p>Nguyễn Thị Tên</p></div>
                     </a>
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="/home/12/detail">
                                 <div><img src="/img/man.png" style="width: 100px; height: 125px"><br><p>Vo Huy Trí</p></div>
                                 <div><img src="/img/girl.png" style="width: 100px; height: 125px"><br><p>Nguyễn Thị Tên</p></div>
                             </a>

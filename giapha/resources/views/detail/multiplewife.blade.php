@@ -142,7 +142,8 @@
             .infor{
                 float: left;
                 width: 50%;
-                border:1px solid #ccc;
+                border:2px solid #ccc;
+                margin-right: 5px;
             }
             .infor .title {
                 float: left;
@@ -154,7 +155,7 @@
             .infor .avatar{
                 float: left;
                 width: 200px;
-                height: 250px;
+                height: 243px;
                 margin-right: 30px;
                 margin-left: 30px;
                 border: double;
@@ -186,25 +187,70 @@
                 border-top: double;
                 border-bottom: double;
             }
+            .leftbody
+            {
+                float: left;
+                width: 30px;
+                /*//border: 1px solid red;*/
+                height: 100%;
+            }
+            .topheader
+            {
+                float: left;
+                width: 100%;
+                height: 40px;
+            }
         </style>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
+    <div class="topheader">
+        <ul>
+            <li>xxx</li>
+        </ul>
+    </div>
+    <div class="leftbody"></div>
             <div class="infor">
-            <div class="title">Thông tin cá nhân :</div>
-            <div class="avatar"><img style="width:200px; hieght: 250px;" src="/img/man.png"></div>
-            <div class="name">Tên thường gọi: Võ Huy Lộc</div>
-                <div class="name">Họ tên: Võ Huy Lộc</div>
-            <div class="birthday">Ngày sinh: 04/06/1902</div>
-            <div class="dead-date">Ngày mất: 04/06/1912</div>
-            <div class="address"> Địa chỉ: Xóm 1 nam anh nam dan nghe an</div>
-            <div class="phone">Điện thoại: 0974839268</div>
+                <div class="title">Thông tin cá nhân :</div>
+                <div class="avatar"><img style="width:195px; hieght: 243px;" src="/img/man.png"></div>
+                <div class="name">Tên thường gọi: Võ Huy Lộc</div>
+                    <div class="name">Họ tên: Võ Huy Lộc</div>
+                <div class="birthday">Ngày sinh: 04/06/1902</div>
+                <div class="dead-date">Ngày mất: 04/06/1912</div>
+                <div class="address"> Địa chỉ: Xóm 1 nam anh nam dan nghe an</div>
+                <div class="phone">Điện thoại: 0974839268</div>
+                <button type="button" class="btn" style="margin-top:60px" data-toggle="modal" data-target="#myModal">Thêm con <span class="glyphicon glyphicon-pencil"></span></button>
+
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Modal Header</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
                 <div class="br"></div>
             <div class="album-family"><img style="width: 100%; height: 300px" src="/img/volocfamily.png"></div>
             <div class="letter"> Tự sự của bản thân</div>
                 <div class="letter"> Vợ:</div>
                 <div class="letter"> Con cái:</div>
 
-    </div>
+        </div>
         <div class="tree">
             <di class="title">Gia đình: Võ Huy Lộc</di>
             <ul>

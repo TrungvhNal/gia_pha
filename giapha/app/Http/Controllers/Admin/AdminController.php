@@ -14,7 +14,7 @@ use Hash;
 
 class AdminController extends Controller
 {
-    function index(){
+    public function index(){
         return view('admin.index');
     }
 }
