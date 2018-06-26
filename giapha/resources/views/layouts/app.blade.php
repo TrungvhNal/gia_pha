@@ -14,6 +14,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Styles -->
+
     <link rel="stylesheet" href="{{ asset('front_end/home/css/reset.css') }}"> <!-- CSS reset -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/detail.css') }}" rel="stylesheet">
@@ -22,9 +23,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{ asset('front_end/home/css/reset.css') }}"> <!-- CSS reset -->
-    <link rel="stylesheet" href="{{ asset('front_end/home/css/style.css') }}"> <!-- Resource style -->
-    <script src="{{ asset('front_end/home/js/modernizr.js') }}"></script> <!-- Modernizr -->
+
+    @yield('css-home')
 
 </head>
 <body>

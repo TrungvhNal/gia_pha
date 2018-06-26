@@ -26,9 +26,9 @@ class AddUsersRequest extends Request
         return [
             'txtBoMeVoChong' => 'required',
             'txtFullName' => 'required',
-            'txtNameShort' =>'required',
             'txtBirthday' =>'required',
             'txtAddress' =>'required',
+            'txtEmail' => 'required|unique:users,email'
         ];
     }
     public function messages()
@@ -36,7 +36,10 @@ class AddUsersRequest extends Request
         return [
             'txtFullName.required' => 'Họ tên là bắt buộc nhập.',
             'txtBirthday.required' => 'Ngày sinh là bắt buộc nhập.',
-            'txtAddress.required' => 'Địa chỉ hiện tại là bắt buộc nhập.'
+            'txtAddress.required' => 'Địa chỉ hiện tại là bắt buộc nhập.',
+            'txtEmail.required' => 'Email không được bỏ trống',
+            'txtEmail.email' => 'Email không đúng định dạng'
+
         ];
     }
 }

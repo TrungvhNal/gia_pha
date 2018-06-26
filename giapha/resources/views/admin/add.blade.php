@@ -15,30 +15,38 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-sm-6 col-md-2">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @elseif (Session()->has('flash_level'))
+                        <div class="alert alert-success">
+                            <ul>
+                                {!! Session::get('flash_massage') !!}
+                            </ul>
+                        </div>
+                    @endif
+                        @if ($successful)
+                            <div class="alert alert-success">
+                                <ul>
+                                    <li>{{ $successful }}</li>
+                                </ul>
+                            </div>
+                        @endif
+                    <form action="{{route('postadd')}}" method="POST" role="form" enctype="">
+                        {{ csrf_field() }}
+                    <div class="col-sm-6 col-md-3">
                         <label>Chân dung</label>
                         <img src="http://placehold.it/200x250" alt="" class="img-rounded img-responsive" />
                         <label></label>
                         <input name="txtFile" type="file" id="inputimg">
                     </div>
                     <div class="col-lg-6">
-                        @if (count($errors) > 0)
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @elseif (Session()->has('flash_level'))
-                            <div class="alert alert-success">
-                                <ul>
-                                    {!! Session::get('flash_massage') !!}
-                                </ul>
-                            </div>
-                        @endif
-                        <form action="{{route('postadd')}}" method="POST" role="form" enctype="">
-                            {{ csrf_field() }}
+
                             <div class="form-group">
                                 <label>Người liên quan.</label>
                                 <br>
@@ -69,14 +77,24 @@
                                     </span>
                                 @endif
                             </div>
+                        <div class="form-group">
+                            <label>Giới tính.</label>
+                            <br>
+                            <label class="radio-inline">
+                                <input type="radio" name="sexy" id="sexy" value="1" checked>
+                                Nam &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="sexy" id="sexy" value="0" >
+                                Nữ
+                            </label>
+                        </div>
                             <div class="form-group">
                                 <label>Tên thường gọi</label>
                                 <input name="txtNameShort" class="form-control" placeholder="Enter text">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group {{ $errors->has('txtBirthday') ? ' has-error' : '' }}">
                                 <label>Ngày sinh</label>
-                                <input name="txtBirthday" class="form-control" placeholder="Ví dụ: 04/06/1988." required="required">
+                                <input type="date" name="txtBirthday" class="form-control" placeholder="Ví dụ: 04/06/1988." required="required">
                                 @if ($errors->has('txtBirthday'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('txtBirthday') }}</strong>
@@ -85,17 +103,22 @@
                             </div>
                             <div class="form-group">
                                 <label>Ngày mất</label>
-                                <input name="txtDieDate" class="form-control" placeholder="Ví dụ: 04/06/1988." >
+                                <input type="date" name="txtDieDate" class="form-control" placeholder="Ví dụ: 04/06/1988." >
                             </div>
                             <div class="form-group">
                                 <label>Điện thoại</label>
-                                <input name="txtPhoneNumber" class="form-control" placeholder="0974839268.">
+                                <input type="number" name="txtPhoneNumber" class="form-control" placeholder="0974839268.">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group {{ $errors->has('txtEmail') ? ' has-error' : '' }}">
                                 <label>Email</label>
-                                <input name="txtEmail" class="form-control" placeholder="0974839268.">
+                                <input type="email" name="txtEmail" class="form-control" placeholder="0974839268." required="required">
+                                @if ($errors->has('txtEmail'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('txtEmail') }}</strong>
+                                    </span>
+                                @endif
                             </div>
-                            <div class="form-group">
+                            <div class="form-group {{ $errors->has('txtAddress') ? ' has-error' : '' }}">
                                 <label>Địa chỉ</label>
                                 <input name="txtAddress" class="form-control" placeholder="" required="required">
                                 @if ($errors->has('txtAddress'))

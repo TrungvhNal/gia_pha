@@ -22,11 +22,11 @@ class UsersController extends Controller
 
     function getAdd(){
         $users = User::all();
-        return view('admin.add', ['users'=>$users]);
+        return view('admin.add', ['users'=>$users, 'successful' => null]);
     }
 
-    function postAdd(Request $request){
-
+    function postAdd(Request $request)
+    {
         if($request->get('optionsRadiosInline')==1)
         {
             $idwfie_husband = $request->get('txtBoMeVoChong');
@@ -38,7 +38,7 @@ class UsersController extends Controller
             $idwfie_husband = null;
         }
 
-        if($request->get('txtBirthday'))
+        if($request->get('txtBirthday')!== null)
         {
             $txtBirthday = date('Y-m-d', strtotime(trim($request->get('txtBirthday'))));
         }
@@ -47,15 +47,16 @@ class UsersController extends Controller
             $txtBirthday = null;
         }
 
-        if($request->get('txtDieDate'))
+        if($request->get('txtDieDate')!== null)
         {
             $txtDieDate = date('Y-m-d', strtotime(trim($request->get('txtDieDate'))));
         }
         else
         {
-            dd("xxx");
             $txtDieDate = null;
         }
+
+        $sexy = $request->get('sexy');
         $data = [
             'idwfie_husband' => $idPerant,
             'idPerant' => $idwfie_husband,
@@ -69,13 +70,17 @@ class UsersController extends Controller
             'address' => $request->get('txtAddress'),
             'description' => $request->get('txtDescription'),
             'password' => '123456',
-            'sexy'=> $request->get('sexy'),
+
+            'sexy' => $sexy,
             'idRoles' =>'2'
         ];
+        $users = User::all();
+        if($this->create($data))
+        {
+            return view('admin.add', ['successful'=>'Thêm thành viên thành công!', 'users'=>$users]);
+        }
 
-        $this->create($data);
-
-        return view('admin.add', ['sucsseful'=>'Thêm thành viên thành công!']);
+        return view('admin.add', ['users'=>$users]);
     }
 
     function getEdit($id){
@@ -110,7 +115,7 @@ class UsersController extends Controller
             'address' => $data['address'],
             'description' => $data['description'],
             'password' => Hash::make($data['password']),
-            'sexy'=>'',
+            'sexy'=> $data['sexy'],
             'idRoles' =>'2'
         ]);
     }

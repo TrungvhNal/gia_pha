@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('css-home')
+    <link rel="stylesheet" href="{{ asset('front_end/home/css/style.css') }}"> <!-- Resource style -->
+    <script src="{{ asset('front_end/home/js/modernizr.js') }}"></script> <!-- Modernizr -->
+@stop
 @section('content')
 
     <div id="page-wrapper" style="margin-top: 30px;">
