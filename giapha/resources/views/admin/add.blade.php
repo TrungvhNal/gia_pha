@@ -1,4 +1,26 @@
 @extends('layouts.admin.layout')
+@section('js_common')
+    <style>
+        article, aside, figure, footer, header, hgroup,
+        menu, nav, section { display: block; }
+    </style>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#txt_img')
+                        .attr('src', e.target.result)
+                        .width(200)
+                        .height(250);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+@stop
 @section('content')
 <div class="row">
     <div class="col-lg-12">
@@ -37,13 +59,13 @@
                                 </ul>
                             </div>
                         @endif
-                    <form action="{{route('postadd')}}" method="POST" role="form" enctype="">
+                    <form action="{{route('postadd')}}" method="POST" role="form" enctype="multipart/form-data">
                         {{ csrf_field() }}
                     <div class="col-sm-6 col-md-3">
                         <label>Chân dung</label>
-                        <img src="http://placehold.it/200x250" alt="" class="img-rounded img-responsive" />
+                        <img id="txt_img" src="http://placehold.it/200x250" alt="" class="img-rounded img-responsive" />
                         <label></label>
-                        <input name="txtFile" type="file" id="inputimg">
+                        <input onchange="readURL(this)" name="txtFile" type="file"  accept="image/gif, image/jpg, image/png">
                     </div>
                     <div class="col-lg-6">
 
@@ -81,9 +103,9 @@
                             <label>Giới tính.</label>
                             <br>
                             <label class="radio-inline">
-                                <input type="radio" name="sexy" id="sexy" value="1" checked>
+                                <input type="radio" name="gender" id="gender" value="1" checked>
                                 Nam &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="radio" name="sexy" id="sexy" value="0" >
+                                <input type="radio" name="gender" id="gender" value="0" >
                                 Nữ
                             </label>
                         </div>
@@ -103,7 +125,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Ngày mất</label>
-                                <input type="date" name="txtDieDate" class="form-control" placeholder="Ví dụ: 04/06/1988." >
+                                <input hidden type="date" name="txtDieDate" class="form-control" placeholder="Ví dụ: 04/06/1988." >
                             </div>
                             <div class="form-group">
                                 <label>Điện thoại</label>
@@ -147,4 +169,5 @@
     <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
+
 @endsection

@@ -26,7 +26,7 @@ class User extends Authenticatable
             'email',
             'address',
             'password',
-            'sexy',
+            'gender',
 	        'url_photo',
             'description',
             'idRoles'
@@ -41,4 +41,54 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /**
+     * get ông tổ của cả họ.
+     */
+    public function getMembersIndex()
+    {
+        return User::where('status',2)->first();
+    }
+
+    /**
+     * Lấy con cua bố mẹ
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getChildMemeber($id)
+    {
+        return User::where('idPerant', $id)->orderBy('sort', 'DESC')->get();
+    }
+
+    /**
+     * Lấy vợ hoặc chông
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getHusbandWife($idParent)
+    {
+        return User::Where('idwfie_husband', $idParent)->orderBy('sort', 'DESC')->get();
+    }
+
+    /**
+     * count all members
+     *
+     * @return int
+     */
+    public function countAllMembers()
+    {
+        return User::all()->count();
+    }
+
+    /**
+     * count all members
+     *
+     * @return int
+     */
+    public function getAllMembers()
+    {
+        return User::whereNull('deleted_at')->orderBy('status', 'DESC')->get();
+    }
 }

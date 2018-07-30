@@ -33,7 +33,7 @@
                             <td>{{$item->name}}</td>
                             <td>{{$item->short_name}}</td>
                             <td>{{$item->birthday}}</td>
-                            <td class="center">{{$item->sexy == 1?'Nam':'Nữ'}}</td>
+                            <td class="center">{{$item->gender == 1?'Nam':'Nữ'}}</td>
                             <td class="center">{{$item->phone}}</td>
                             <td class="center">{{$item->address}}</td>
                             <td class="center"><a href="#">xem chi tiết</a></td>

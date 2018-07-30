@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
+use DateTime,File,Input,DB;
 
 class UsersController extends Controller
 {
@@ -56,24 +57,35 @@ class UsersController extends Controller
             $txtDieDate = null;
         }
 
-        $sexy = $request->get('sexy');
+        if ($request->hasFile('txtFile')) {
+            //get img and save to local
+            //$filname = $request->get('txtFile');
+            $photo = $request->file('txtFile')->getClientOriginalName();
+            $filename = time().'_'.$photo;
+            $destination = base_path() . '/public/uploads';
+            $request->file('txtFile')->move($destination, $filename);
+
+        }
+
+        $gender = $request->get('gender');
         $data = [
             'idwfie_husband' => $idPerant,
             'idPerant' => $idwfie_husband,
             'name' => $request->get('txtFullName'),
             'address' => $request->get('txtNameShort'),
-            'url_photo' => $request->get('txtFile'),
+            'images' => $filename,
             'birthday' => $txtBirthday,
             'diedate_at' => $txtDieDate,
             'phone' => $request->get('txtPhoneNumber'),
             'email' => $request->get('txtEmail'),
             'address' => $request->get('txtAddress'),
             'description' => $request->get('txtDescription'),
-            'password' => '123456',
+            'password' => '0974839268',
 
-            'sexy' => $sexy,
+            'gender' => $gender,
             'idRoles' =>'2'
         ];
+
         $users = User::all();
         if($this->create($data))
         {
@@ -107,7 +119,7 @@ class UsersController extends Controller
             'idPerant' => $data['idPerant'],
             'name' => $data['name'],
             'address' => $data['address'],
-            'url_photo' => $data['url_photo'],
+            'images' => $data['images'],
             'birthday' => $data['birthday'],
             'diedate_at' => $data['diedate_at'],
             'phone' => $data['phone'],
@@ -115,7 +127,7 @@ class UsersController extends Controller
             'address' => $data['address'],
             'description' => $data['description'],
             'password' => Hash::make($data['password']),
-            'sexy'=> $data['sexy'],
+            'gender'=> $data['gender'],
             'idRoles' =>'2'
         ]);
     }
